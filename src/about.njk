@@ -7,3 +7,9 @@ layout: base.njk
     <h1>This is about page</h1>
     <p>Jamstack about page</p>
 </div>
+
+<div>
+    {% for item in news %}
+        <a href="/{{item.country}}">{{item.country}}</a>
+    {% endfor %}    
+</div>

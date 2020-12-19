@@ -1,0 +1,7 @@
+---
+permalink: _redirects
+---
+
+{% for item in news %}
+/ /{{item.country}}/index.html 200 County={{item.country}}
+{% endfor %}

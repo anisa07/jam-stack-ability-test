@@ -9,14 +9,5 @@ layout: base.njk
     <div class="icon">
         👼
     </div>
-    <ul>
-    {% for article in news.articles %}
-        <li>
-            <h3><a href="{{article.url}}">{{ article.title }}</a></h3>
-            <img src="{{article.urlToImage}}" width="200px"/>
-            <p>{{article.content}}</p>
-        </li>
-    {% endfor %}    
-    </ul>
 </div>
 <script src="js/message.js"></script>
