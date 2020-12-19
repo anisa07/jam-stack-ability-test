@@ -9,14 +9,12 @@ async function getNews(country) {
             articles: response.data.articles
         }
     } catch (e) {
-        console.log("e", e)
+        console.log("error", e)
     }
 }
 
 module.exports = async function() {
     const newsPromises = countries.map(getNews);
-    // console.log(newsPromises);
     const promiseResult = await Promise.all(newsPromises);
-    /// console.log(promiseResult);
     return promiseResult;
 }
