@@ -3,10 +3,10 @@ const countries = require("./countries.json");
 
 async function getNews(country) {
     try {
-        const response = await axios.get(`http://newsapi.org/v2/top-headlines?country=${country}&category=business&apiKey=${process.env.NEWS_API_KEY}`);
+        const response = await axios.get(`http://newsapi.org/v2/top-headlines?country=${country}&category=business&apiKey=${process.env.NEWS_API_KEY}?pageSize=3`);
         return {
             country,
-            articles: response.data.articles
+            articles: response.data.articles || []
         }
     } catch (e) {
         console.log("error", e)
