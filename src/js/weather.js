@@ -1,15 +1,17 @@
 
-const axios = require('axios');
-
-async function success(pos) {
+function success(pos) {
     var crd = pos.coords;
     const url = `api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=${process.env.WEATHER_API_KEY}&units=metric`;
-    const response = await axios.get(url);
-    
-    document.querySelector('#city').textContent = response.data.name;
-    document.querySelector('#temp').textContent = response.data.main.temp;
-    document.querySelector('#main').textContent = response.data.weather[0].main;
-    document.querySelector('#desc').textContent = response.data.weather[0].description;
+    fetch(url)
+    .then(response => {
+      return response.json()
+    })
+    then(data => {
+      document.querySelector('#city').textContent = data.name;
+      document.querySelector('#temp').textContent = data.main.temp;
+      document.querySelector('#main').textContent = data.weather[0].main;
+      document.querySelector('#desc').textContent = data.weather[0].description;
+    })
   };
   
   function error(err) {
