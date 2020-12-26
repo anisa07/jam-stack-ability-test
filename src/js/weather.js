@@ -1,7 +1,7 @@
 
 function success(pos) {
     var crd = pos.coords;
-    const url = `api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=${process.env.WEATHER_API_KEY}&units=metric`;
+    const url = `/.netlify/functions/weatherapi?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric`;
     fetch(url)
     .then(response => {
       return response.json()
